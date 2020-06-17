@@ -14,6 +14,8 @@ import java.io.IOException;
  *         Пример кода для курса на https://stepic.org/
  *         <p>
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
+ *
+ *         ахахаха теперь это мой код!!!!!!!
  */
 public class UsersServlet extends HttpServlet {
     @SuppressWarnings({"FieldCanBeLocal", "UnusedDeclaration"}) //todo: remove after module 2 home work
@@ -27,23 +29,38 @@ public class UsersServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
         //todo: module 2 home work
+
+
+
+
     }
 
     //sign up
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
         //todo: module 2 home work
+///
+
+
+
     }
 
     //change profile
     public void doPut(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
         //todo: module 2 home work
+
+
+
+
     }
 
     //unregister
     public void doDelete(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         //todo: module 2 home work
+
+
+
     }
 }

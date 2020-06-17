@@ -9,6 +9,7 @@ import java.util.Map;
  *         Пример кода для курса на https://stepic.org/
  *         <p>
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
+ *
  */
 public class AccountService {
     private final Map<String, UserProfile> loginToProfile;

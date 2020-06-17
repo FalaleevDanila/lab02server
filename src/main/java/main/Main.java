@@ -24,10 +24,10 @@ import org.eclipse.jetty.util.log.Logger;
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
  */
 public class Main {
-    private static final Logger LOG = Log.getLogger(Main.class);
+    //private static final Logger LOG = Log.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        LOG.warn("Server started");
+        //LOG.info("Server started");
         AccountService accountService = new AccountService();
 
         accountService.addNewUser(new UserProfile("admin"));
@@ -47,6 +47,7 @@ public class Main {
         server.setHandler(handlers);
 
         server.start();
+        System.out.println("Server started");
         server.join();
     }
 }

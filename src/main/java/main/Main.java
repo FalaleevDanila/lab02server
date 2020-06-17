@@ -9,7 +9,12 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import servlets.SessionsServlet;
+import servlets.SignInServlet;
+import servlets.SignUpServlet;
 import servlets.UsersServlet;
+import org.eclipse.jetty.util.log.Log;
+import org.eclipse.jetty.util.log.Logger;
+
 
 /**
  * @author v.chibrikov
@@ -19,15 +24,18 @@ import servlets.UsersServlet;
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
  */
 public class Main {
+    private static final Logger LOG = Log.getLogger(Main.class);
+
     public static void main(String[] args) throws Exception {
+        LOG.warn("Server started");
         AccountService accountService = new AccountService();
 
         accountService.addNewUser(new UserProfile("admin"));
         accountService.addNewUser(new UserProfile("test"));
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new UsersServlet(accountService)), "/api/v1/users");
-        context.addServlet(new ServletHolder(new SessionsServlet(accountService)), "/api/v1/sessions");
+        context.addServlet(new ServletHolder(new SignUpServlet(accountService)), "/signup");
+        context.addServlet(new ServletHolder(new SignInServlet(accountService)), "/signin");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setResourceBase("public_html");
